@@ -14,18 +14,31 @@
 
 #include "cprocessing.h"
 
+CP_Image digiLogo;
 // use CP_Engine_SetNextGameState to specify this function as the initialization function
 // this function will be called once at the beginning of the program
 void game_init(void)
 {
-	// initialize variables and CProcessing settings for this gamestate
+	CP_System_SetWindowSize(800, 800);
+	digiLogo = CP_Image_Load("./Assets/DigiPen_BLACK.png");
+
+	
+	
+		
+	
 }
 
 // use CP_Engine_SetNextGameState to specify this function as the update function
 // this function will be called repeatedly every frame
 void game_update(void)
-{
-	// check input, update simulation, render etc.
+{	
+	
+	CP_Color backgroundColor = CP_Color_Create(150, 100, 250, 255);
+	float logoX = CP_System_GetSeconds() * 100.0f;
+	CP_Graphics_ClearBackground(backgroundColor);
+	CP_Image_Draw(digiLogo, logoX , 400, 300, 100, 255);
+
+
 }
 
 // use CP_Engine_SetNextGameState to specify this function as the exit function
