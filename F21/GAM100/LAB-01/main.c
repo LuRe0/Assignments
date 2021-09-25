@@ -1,10 +1,10 @@
 //---------------------------------------------------------
 // file:	main.c
-// author:	[NAME]
-// email:	[DIGIPEN EMAIL ADDRESS]
+// author:	Anthon Reid
+// email:	anthon.reid@digipen.edu
 //
-// brief:	Main entry point for the sample project
-//			of the CProcessing library
+// brief:	A splashscreen of made with the Digipen
+//			logo using the CProcessing library
 //
 // documentation link:
 // https://github.com/DigiPen-Faculty/CProcessing/wiki
@@ -36,7 +36,7 @@ void game_init(void)
 	clap = CP_Sound_Load("./Assets/Clap.wav");
 	aNote = CP_Sound_Load("./Assets/Notes/a.wav");
 
-	fadeOut = 255; \
+	fadeOut = 255; 
 	fadeIn = 0;
 	rotationControl = 0;
 	
