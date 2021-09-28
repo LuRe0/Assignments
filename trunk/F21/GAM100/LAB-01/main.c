@@ -36,7 +36,7 @@ void game_init(void)
 	clap = CP_Sound_Load("./Assets/Clap.wav");
 	aNote = CP_Sound_Load("./Assets/Notes/a.wav");
 
-	CP_System_SetFrameRate(5);
+	
 	fadeOut = 255; 
 	fadeIn = 0;
 	rotationControl = 0;
