@@ -48,10 +48,16 @@ typedef struct
 // Private Variables:
 //------------------------------------------------------------------------------
 
+//static const GameStateTableEntry GameStateTab[GsNum] =
+//{
+//	// Stub Game State - This is here as a placeholder only.
+//	{ "Stub",	GameStateStubLoad, GameStateStubInit, GameStateStubUpdate, GameStateStubShutdown, GameStateStubUnload },
+//};
+
 static const GameStateTableEntry GameStateTab[GsNum] =
 {
-	// Stub Game State - This is here as a placeholder only.
-	{ "Stub",	GameStateStubLoad, GameStateStubInit, GameStateStubUpdate, GameStateStubShutdown, GameStateStubUnload },
+	// Demo Game State
+	{ "Demo",	GameStateDemoLoad, GameStateDemoInit, GameStateDemoUpdate, GameStateDemoShutdown, GameStateDemoUnload },
 };
 
 //------------------------------------------------------------------------------
@@ -82,6 +88,7 @@ void GameStateExecuteLoad(GameStates gameState)
 		((*GameStateTab[gameState].gameStateLoad) != NULL))
 	{
 		// TODO: Call TraceMessage, passing the format string "%s: Load" and the name of the game state.
+		TraceMessage("%s: Load", GameStateTab[gameState].gameStateName);
 
 		// Execute the Init function.
 		(*GameStateTab[gameState].gameStateLoad)();
@@ -96,6 +103,7 @@ void GameStateExecuteInit(GameStates gameState)
 		((*GameStateTab[gameState].gameStateInit) != NULL))
 	{
 		// TODO: Call TraceMessage, passing the format string "%s: Init" and the name of the game state.
+		TraceMessage("%s: Init", GameStateTab[gameState].gameStateName);
 
 		// Execute the Init function.
 		(*GameStateTab[gameState].gameStateInit)();
@@ -110,6 +118,7 @@ void GameStateExecuteUpdate(GameStates gameState, float dt)
 		((*GameStateTab[gameState].gameStateUpdate) != NULL))
 	{
 		// TODO: Call TraceMessage, passing the format string "%s: Update" and the name of the game state.
+		TraceMessage("%s: Update", GameStateTab[gameState].gameStateName);
 
 		// Execute the Update function.
 		(*GameStateTab[gameState].gameStateUpdate)(dt);
@@ -124,6 +133,7 @@ void GameStateExecuteShutdown(GameStates gameState)
 		((*GameStateTab[gameState].gameStateShutdown) != NULL))
 	{
 		// TODO: Call TraceMessage, passing the format string "%s: Shutdown" and the name of the game state.
+		TraceMessage("%s: Shutdown", GameStateTab[gameState].gameStateName);
 
 		// Execute the Shutdown function.
 		(*GameStateTab[gameState].gameStateShutdown)();
@@ -138,6 +148,7 @@ void GameStateExecuteUnload(GameStates gameState)
 		((*GameStateTab[gameState].gameStateUnload) != NULL))
 	{
 		// TODO: Call TraceMessage, passing the format string "%s: Unload" and the name of the game state.
+		TraceMessage("%s: Unload", GameStateTab[gameState].gameStateName);
 
 		// Execute the Init function.
 		(*GameStateTab[gameState].gameStateUnload)();

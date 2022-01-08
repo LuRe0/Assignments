@@ -75,11 +75,20 @@ void GameStateManagerUpdate(float dt)
 		GameStateExecuteShutdown(gameState.current);
 
 		// TODO: Add support for Load and Unload.
+		if (!GameStateManagerIsRestarting())
+		{
+			GameStateExecuteUnload(gameState.current);
 
-		// Update the recorded states.
-		gameState.previous = gameState.current;
-		gameState.current = gameState.next;
+			// Update the recorded states.
+			gameState.previous = gameState.current;
+			gameState.current = gameState.next;
 
+			GameStateExecuteLoad(gameState.current);
+		}
+		else
+		{
+			gameState.next = gameState.current;
+		}
 
 		// Initialize the new game state.
 		GameStateExecuteInit(gameState.current);
