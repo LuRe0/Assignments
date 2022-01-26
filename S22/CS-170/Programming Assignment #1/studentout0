@@ -1,0 +1,35 @@
+enter field dimensions: create a robot? enter robot position: enter robot orientation: enter robot instructions: robot final position 2 -1 n lost
+create a robot? enter robot position: enter robot orientation: enter robot instructions: robot final position 2 0 n
+create a robot? enter robot position: enter robot orientation: enter robot instructions: robot final position 3 6 s
+create a robot? 
+Last robots' positions
++------------+
+|  r         |
+|            |
+|            |
+|            |
+|            |
+|            |
+|   r        |
+|            |
+|            |
+|            |
+|            |
+|            |
++------------+
+
+Marked positions
++------------+
+|  M         |
+|            |
+|            |
+|            |
+|            |
+|            |
+|            |
+|            |
+|            |
+|            |
+|            |
+|            |
++------------+
