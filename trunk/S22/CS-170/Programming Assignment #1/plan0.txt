@@ -1,0 +1,5 @@
+12 12
+y 2 2 n fff
+y 2 2 n fff
+y 3 3 w rrrfff
+n

@@ -1,0 +1,30 @@
+In this lab you will write a few simple functions to manipulate a singly-linked
+list. There are 7 functions, but two are already provided for you. Remember to
+keep your code from this lab as you will add to it in the coming weeks. Also,
+be sure to draw diagrams to help you understand what you are trying to do.
+If you need a refresher on linked lists - use CS120 link posted on course 
+web-site.
+
+Note:
+This is a fairly simple lab and is somewhat similar to a CS120 lab that some of
+you did. (Even the Node structure was the same.) However, you can't just simply
+resubmit what you did in CS120 because you are going to be modifying things and
+using C++-style code. Also, *** the next 4 labs will be built from this lab***,    <<<<< !!!!!
+so make sure you do this correctly. If you need a refresher from CS120,
+you can find the linked-list notes here that I discussed on Friday during
+the extra linked-list lecture last week.
+
+To access you old submission fro CS120 use this link (substitute student.login
+with your actual login):
+https://pontus.digipen.edu/cgi-bin/submission.cgi?course=cs120f21&action=course_front&role=student&login=student.login
+
+To build:
+make gcc0
+
+to test correctness:
+make 0
+
+to test memory
+make mem0
+
+

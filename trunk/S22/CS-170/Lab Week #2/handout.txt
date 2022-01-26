@@ -1,0 +1,14 @@
+Fibonacci numbers
+=================
+
+Definition (recursive)
+    F_0 = 0 
+    F_1 = 1 
+    F_(N) = F_(N-2) + F_(N-1) for N>1
+
+Sequence:
+0 1 1 2 3 5 8 13 etc
+
+Implement:
+1) main logic (see above)
+2) formatting - use C++ I/O mainpulations library to create a nice looking table.

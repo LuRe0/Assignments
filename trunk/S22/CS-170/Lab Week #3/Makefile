@@ -1,0 +1,32 @@
+PRG=gcc0.exe
+
+GCC=g++
+GCCFLAGS1=-Wall -Wextra -ansi -pedantic -Wconversion -O2
+
+LFLAGS=
+
+OBJECTS0=List.cpp
+DRIVER0=driver.cpp
+
+VALGRIND_OPTIONS=--suppressions=/home/mmead/bin/false-8.supp -q --leak-check=full --show-reachable=yes --tool=memcheck
+DIFF_OPTIONS=-y --strip-trailing-cr --suppress-common-lines -b -W200
+
+OSTYPE := $(shell uname)
+ifeq ($(OSTYPE),Linux)
+CYGWIN=
+else
+CYGWIN=-Wl,--enable-auto-import
+endif
+
+gcc0:
+	g++ -o $(PRG) $(CYGWIN) $(DRIVER0) $(OBJECTS0) $(GCCFLAGS1) $(LFLAGS)
+0:
+	echo "running test$@"
+	@echo "should run in less than 200 ms"
+	./$(PRG) >studentout$@
+	diff output$@.txt studentout$@ $(DIFF_OPTIONS) > difference$@ 2>&1
+mem0:
+	echo "running memory test $@"
+	drmemory -batch -no_summary -- $(PRG)
+clean : 
+	rm *.exe student* difference*
