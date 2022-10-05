@@ -1,0 +1,74 @@
+﻿  driver.cpp
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(53,1): error C2244: 'CS170::Rational<T>::operator +=': unable to match function definition to an existing declaration
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(52): message : see declaration of 'CS170::Rational<T>::operator +='
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(53,1): message : definition
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(53,1): message : 'CS170::Rational<T> CS170::Rational<T>::operator +=(const CS170::Rational<T> &)'
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(53,1): message : existing declarations
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(53,1): message : 'CS170::Rational<T> &CS170::Rational<T>::operator +=(const CS170::Rational<T> &)'
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\driver.cpp(171,88): error C2039: 'numerator': is not a member of 'CS170::Rational<int>'
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\driver.cpp(8): message : see declaration of 'CS170::Rational<int>'
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\driver.cpp(171,107): error C2039: 'denominator': is not a member of 'CS170::Rational<int>'
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\driver.cpp(8): message : see declaration of 'CS170::Rational<int>'
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\driver.cpp(187,88): error C2039: 'numerator': is not a member of 'CS170::Rational<long>'
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\driver.cpp(137): message : see declaration of 'CS170::Rational<long>'
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\driver.cpp(187,107): error C2039: 'denominator': is not a member of 'CS170::Rational<long>'
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\driver.cpp(137): message : see declaration of 'CS170::Rational<long>'
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\driver.cpp(198,14): error C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  rational.cpp
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(53,1): error C2244: 'CS170::Rational<T>::operator +=': unable to match function definition to an existing declaration
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(52): message : see declaration of 'CS170::Rational<T>::operator +='
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(53,1): message : definition
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(53,1): message : 'CS170::Rational<T> CS170::Rational<T>::operator +=(const CS170::Rational<T> &)'
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(53,1): message : existing declarations
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(53,1): message : 'CS170::Rational<T> &CS170::Rational<T>::operator +=(const CS170::Rational<T> &)'
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(8,22): error C2086: 'int CS170::Rational<T>::width': redefinition
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(8): message : see declaration of 'CS170::Rational<T>::width'
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(12,18): error C2995: 'CS170::Rational<T>::Rational(void)': function template has already been defined
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.h(15): message : see declaration of 'CS170::Rational<T>::Rational'
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(15,18): error C2995: 'CS170::Rational<T>::Rational(T)': function template has already been defined
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.h(16): message : see declaration of 'CS170::Rational<T>::Rational'
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(18,18): error C2995: 'CS170::Rational<T>::Rational(T,T)': function template has already been defined
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.h(17): message : see declaration of 'CS170::Rational<T>::Rational'
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(35,30): error C2995: 'CS170::Rational<T> CS170::Rational<T>::operator -(void) const': function template has already been defined
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.h(21): message : see declaration of 'CS170::Rational<T>::operator -'
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(53,1): error C2244: 'CS170::Rational<T>::operator +=': unable to match function definition to an existing declaration
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(52): message : see declaration of 'CS170::Rational<T>::operator +='
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(53,1): message : definition
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(53,1): message : 'CS170::Rational<T> CS170::Rational<T>::operator +=(const CS170::Rational<T> &)'
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(53,1): message : existing declarations
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(53,1): message : 'CS170::Rational<T> &CS170::Rational<T>::operator +=(const CS170::Rational<T> &)'
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(74,30): error C2995: 'CS170::Rational<T> CS170::Rational<T>::operator +(const CS170::Rational<T> &) const': function template has already been defined
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.h(27): message : see declaration of 'CS170::Rational<T>::operator +'
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(95,30): error C2995: 'CS170::Rational<T> CS170::Rational<T>::operator -(const CS170::Rational<T> &) const': function template has already been defined
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.h(30): message : see declaration of 'CS170::Rational<T>::operator -'
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(115,31): error C2995: 'CS170::Rational<T> &CS170::Rational<T>::operator -=(const CS170::Rational<T> &)': function template has already been defined
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.h(33): message : see declaration of 'CS170::Rational<T>::operator -='
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(134,31): error C2995: 'CS170::Rational<T> &CS170::Rational<T>::operator *=(const CS170::Rational<T> &)': function template has already been defined
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.h(36): message : see declaration of 'CS170::Rational<T>::operator *='
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(156,30): error C2995: 'CS170::Rational<T> CS170::Rational<T>::operator *(const CS170::Rational<T> &) const': function template has already been defined
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.h(39): message : see declaration of 'CS170::Rational<T>::operator *'
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(176,31): error C2995: 'CS170::Rational<T> &CS170::Rational<T>::operator /=(const CS170::Rational<T> &)': function template has already been defined
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.h(42): message : see declaration of 'CS170::Rational<T>::operator /='
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(198,30): error C2995: 'CS170::Rational<T> CS170::Rational<T>::operator /(const CS170::Rational<T> &) const': function template has already been defined
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.h(45): message : see declaration of 'CS170::Rational<T>::operator /'
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(219,23): error C2995: 'bool CS170::Rational<T>::operator <(const CS170::Rational<T> &) const': function template has already been defined
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.h(51): message : see declaration of 'CS170::Rational<T>::operator <'
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(236,23): error C2995: 'bool CS170::Rational<T>::operator ==(const CS170::Rational<T> &) const': function template has already been defined
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.h(54): message : see declaration of 'CS170::Rational<T>::operator =='
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(253,23): error C2995: 'bool CS170::Rational<T>::operator <=(const CS170::Rational<T> &) const': function template has already been defined
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.h(57): message : see declaration of 'CS170::Rational<T>::operator <='
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(270,23): error C2995: 'bool CS170::Rational<T>::operator >(const CS170::Rational<T> &) const': function template has already been defined
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.h(63): message : see declaration of 'CS170::Rational<T>::operator >'
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(287,23): error C2995: 'bool CS170::Rational<T>::operator >=(const CS170::Rational<T> &) const': function template has already been defined
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.h(60): message : see declaration of 'CS170::Rational<T>::operator >='
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(304,23): error C2995: 'bool CS170::Rational<T>::operator !=(const CS170::Rational<T> &) const': function template has already been defined
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.h(66): message : see declaration of 'CS170::Rational<T>::operator !='
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(314,19): error C2995: 'std::ostream &CS170::operator <<(std::ostream &,const CS170::Rational<T> &)': function template has already been defined
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(314): message : see declaration of 'CS170::operator <<'
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(322,23): error C2995: 'void CS170::Rational<T>::CheckSign(void)': function template has already been defined
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.h(80): message : see declaration of 'CS170::Rational<T>::CheckSign'
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(327,23): error C2995: 'void CS170::Rational<T>::CheckGCD(void)': function template has already been defined
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.h(81): message : see declaration of 'CS170::Rational<T>::CheckGCD'
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.cpp(334,22): error C2995: 'int CS170::Rational<T>::GCD(void) const': function template has already been defined
+C:\Users\lucre\Desktop\PersonalSVN\S22\CS-170\Programming Assignment #6\rational.h(82): message : see declaration of 'CS170::Rational<T>::GCD'
+  Generating Code...

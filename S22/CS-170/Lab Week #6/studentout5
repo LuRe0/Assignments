@@ -1,0 +1,6 @@
+
+********** TestSubscripts **********
+push_back 10 even integers:
+0  2  4  6  8  10  12  14  16  18  (size=10, capacity=16, allocs=5)
+multiple each value by 3:
+0  6  12  18  24  30  36  42  48  54  (size=10, capacity=16, allocs=5)

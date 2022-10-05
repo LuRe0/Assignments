@@ -1,0 +1,17 @@
+
+********** TestAssign **********
+push_back 10 integers into a,b and 5 into c:
+0  2  4  6  8  10  12  14  16  18  (size=10, capacity=16, allocs=5)
+0  1  2  3  4  5  6  7  8  9  (size=10, capacity=16, allocs=5)
+3  9  15  21  27  (size=5, capacity=8, allocs=4)
+Assign: b = a, print a,b
+0  2  4  6  8  10  12  14  16  18  (size=10, capacity=16, allocs=5)
+0  2  4  6  8  10  12  14  16  18  (size=10, capacity=16, allocs=5)
+Assign: a = a, print a
+0  2  4  6  8  10  12  14  16  18  (size=10, capacity=16, allocs=5)
+Assign: a = c, print a,c
+3  9  15  21  27  (size=5, capacity=16, allocs=5)
+3  9  15  21  27  (size=5, capacity=8, allocs=4)
+Assign: c = b, print b,c
+0  2  4  6  8  10  12  14  16  18  (size=10, capacity=16, allocs=5)
+0  2  4  6  8  10  12  14  16  18  (size=10, capacity=10, allocs=5)

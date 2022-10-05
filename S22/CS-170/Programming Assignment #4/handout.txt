@@ -1,0 +1,155 @@
+Table class allows creation of rectangular 2D arrays of strings (using
+std::string provided by C++). 
+
+Inner representation: "real" (not flat) dynamically allocated 2D array:
+
+//create
+int ** ppData = new int* [ Rows_ ]; // pointers to rows
+for( unsigned int r=0; r<Rows_; ++r ) {
+    ppData[r] = new int [ Cols_ ];  // rows with data
+}
+// use
+for( unsigned int r=0; r<Rows_; ++r ) {
+    for( unsigned int c=0; c<Cols_; ++c ) {
+        ppData[i][j] = i+j;
+    }
+}
+//delete
+for( unsigned int r=0; r<Rows_; ++r ) {
+    delete [] ppData[r];
+}
+delete [] ppData;
+
+// ppData (row pointers: no data, they point at rows of data)
+//  |
+//  V
+// +--+      +--------------------------+
+// |  |----->|       ppData[0]          |
+// +--+      +--------------------------+
+// |  |--+    
+// +--+  |              +--------------------------+
+// |  |  +------------->|  ppData[1]               |
+// +--+                 +--------------------------+
+//   |                                                                   
+//   |               +--------------------------+
+//   +------------->>|  ppData[2]               |
+//                   +--------------------------+
+
+
+
+Table operations:
+////////////////////////////////////////////////////////////////////////////////
+the usual - big-4
+
+////////////////////////////////////////////////////////////////////////////////
+nice looking Display2 method. Use std::setw and std::setfill to make columns 
+align and draw borders:
++----------+-----------+--------+-----------+
+| interdum | elementum |    vel |  suscipit |
++----------+-----------+--------+-----------+
+|      est |   Aliquam |   erat |  volutpat |
++----------+-----------+--------+-----------+
+|   Nullam |     purus | tellus | malesuada |
++----------+-----------+--------+-----------+
+|      non |      odio |     in |    semper |
++----------+-----------+--------+-----------+
+The words should not make any sense - it is Lorem Ipsum 
+(see https://www.lipsum.com/)
+
+////////////////////////////////////////////////////////////////////////////////
+position access: unfortunately C++ dos not allow double index using brackets
+operator like this
+obj[ i,j ]
+(index operator is limited to a single argument)
+
+but there is another very similar syntax that supports arbitrary number of arguemnts:
+operator parenthesis:
+operator() ( void ) 
+operator() ( int arg1 ) 
+operator() ( int arg1, int arg2 ) 
+etc
+implement parenthesis operator with 2 arguments to access individual string inside the table:
+cout << "element at (2,3) is " << t(2,3);
+
+////////////////////////////////////////////////////////////////////////////////
+First of all - note the difference:
+
+Table t(1,2);
+and
+t(1,2);
+
+the first requires a conversion constructor that takes two integers - dimensions (like Table (int C, int R) ).
+second is an method (since it is called on an existing object). The required method
+is exactly the operator parenthesis that accepts two integers - indicies.
+
+std::string& Table::operator()(unsigned int r, unsigned int c ) {
+       return ppData_[r][c];
+}
+This is a NON-const version, since it returns by reference - it is both getter and setter:
+std::string s = t(1,2); // getter - uses the above operator()
+t(1,2) = "ddddd";       // setter - uses the above operator()
+this is the case with any method that return by reference.
+
+   
+This is a const version, since it return a const reference it cannot be used in the LHS, so it is not a setter -
+just a getter.
+
+
+////////////////////////////////////////////////////////////////////////////////
+overloaded Reverse:
+3 Reverse methods:
+ - first reverses the string at position (i,j), i and j are arguments
+ - second reverses the row at position i
+ - third reverses "rows and column":
+ 1 2 3 4
+ 5 6 7 8
+becomes
+ 1 5
+ 2 6
+ 3 7
+ 4 8
+i.e. what was at index (i,j) is now at (j,i)
+
+////////////////////////////////////////////////////////////////////////////////
+operator+
+this method puts one table "over" the other to merge into a larger table. The
+positions that are covered by both tables concatenate corresponding element,
+poistion covered by exactly one table just copy the corresponding string, 
+positions not covered by any of the tables are empty strings ("" )
+
+ +-----------+   +-------+      +-------+---+
+ |           |   |       |      |       |   |
+ |    1      |+  |       |      | 1+2   | 1 |
+ +-----------+   |  2    |  =   +-------+---+
+                 |       |      |       |   |
+                 |       |      |  2    | ""|
+                 |       |      |       |   |
+                 +-------+      +-------+---+
+ or
+ +-------+   +-----------+      +-------+---+
+ |       |   |           |      |       |   |
+ |       |+  |    2      |      | 1+2   | 2 |
+ |  1    |   +-----------+  =   +-------+---+
+ |       |                      |       |   |
+ |       |                      |  1    | ""|
+ |       |                      |       |   |
+ +-------+                      +-------+---+
+
+////////////////////////////////////////////////////////////////////////////////
+operator*
+tensor product. Each element of the first table is "multiplied" by the whole
+second table:
+                      +--------------------------+   +------------------------------+
+ +---+   +--------+   |  +--------+    +--------+|   | +-----------+   +-----------+|
+ |a b| * |x  y  z |   |a |x  y  z |  b |x  y  z ||   | |ax  ay  az |   |bx  by  bz ||
+ |c d|   |xx yy zz| = |  |xx yy zz|    |xx yy zz|| = | |axx ayy azz|   |bxx byy bzz||
+ +---+   +--------+   |  +--------+    +--------+|   | +-----------+   +-----------+|
+                      |  +--------+    +--------+|   | +-----------+   +-----------+|
+                      |c |x  y  z |  d |x  y  z ||   | |cx   y   z |   |dx  dy  dz ||
+                      |  |xx yy zz|    |xx yy zz||   | |cxx  yy  zz|   |dxx dyy dzz||
+                      |  +--------+    +--------+|   | +-----------+   +-----------+|
+                      +--------------------------+   +------------------------------+
+
+
+Make sure driver.cc.1.cpp (make targets gcc_cc1 ) compiles (read comment in the driver) 
+Make sure driver.cc.2.cpp (make targets gcc_cc2 ) DOES NOT compiles (read comment in the driver)

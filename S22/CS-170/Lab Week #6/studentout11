@@ -1,0 +1,9 @@
+
+********** TestCopy **********
+push_back 10 even integers:
+Copy: b(a), print a,b
+0  2  4  6  8  10  12  14  16  18  (size=10, capacity=16, allocs=5)
+0  2  4  6  8  10  12  14  16  18  (size=10, capacity=10, allocs=1)
+Copy: c(b), print b,c
+0  2  4  6  8  10  12  14  16  18  (size=10, capacity=10, allocs=1)
+0  2  4  6  8  10  12  14  16  18  (size=10, capacity=10, allocs=1)

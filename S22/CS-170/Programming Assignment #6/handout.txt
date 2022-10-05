@@ -1,0 +1,12 @@
+Templetize class Rational from the previous assignment.
+
+Assume that class T (the template parameter) can do all required arithmetic:
+addition, subtraction, division, and multiplication. 
+
+Friend function stream insertion requires some extra work. Since it is a 
+template friend of a class template, we need a second template parameter 
+U to be able to declare it. 
+
+Take a look at the skeleton to see how static data is initialized (width).
+
+

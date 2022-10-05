@@ -1,0 +1,6 @@
+make.exe gcc0 --dry-run --keep-going --print-directory
+make: Entering directory '/cygdrive/c/Users/lucre/Desktop/PersonalSVN/S22/CS-170/Programming Assignment #5'
+ 
+g++ -g -Wall  -o gnu.exe -Wl,--enable-auto-import driver.cpp  -O2 -Wall -Wextra -ansi -pedantic -Wold-style-cast -Woverloaded-virtual -Wsign-promo  -Wctor-dtor-privacy -Wnon-virtual-dtor 
+make: Leaving directory '/cygdrive/c/Users/lucre/Desktop/PersonalSVN/S22/CS-170/Programming Assignment #5'
+ 
