@@ -1,0 +1,4 @@
+﻿  driver.c
+C:\Users\lucre\Desktop\PersonalSVN\F22\CS225\Filefuse\driver.c(161,21): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\lucre\Desktop\PersonalSVN\F22\CS225\Filefuse\driver.c(162,21): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  Project1.vcxproj -> C:\Users\lucre\Desktop\PersonalSVN\F22\CS225\Filefuse\Filefuse\x64\Debug\Project1.exe
