@@ -1,0 +1,9 @@
+   for (digit1 = size/100, digit2 = (size / 10) % 10, digit3 = size % 10; ((digit1*digit1*digit1) + (digit2*digit2*digit2) + (digit2*digit2*digit2)) == size; digit1++, digit2++, digit3++)
+    {
+      printf("%d has the cube property ( %d + %d + %d )", size, digit1, digit2, digit3);
+	}
+
+ if(i < j && j < k  && k > i && (i*i) + (j*j) == (k*k))
+          {
+          printf("Triple #%3i: %3i,%3i,%3i --> %4i + %4i = %4i\n", size1, i, j, k, (i*i), (j*j), (k*k));
+          }

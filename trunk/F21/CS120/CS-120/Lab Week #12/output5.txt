@@ -1,0 +1,7 @@
+
+test_add_front_back ========================================
+add  1 to front and back:   1  1
+add  2 to front and back:   2  1  1  2
+add  3 to front and back:   3  2  1  1  2  3
+add  4 to front and back:   4  3  2  1  1  2  3  4
+add  5 to front and back:   5  4  3  2  1  1  2  3  4  5
