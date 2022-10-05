@@ -1,0 +1,232 @@
+m1 =
+   0    1    2 
+   1    2    3 
+   2    3    4 
+m1 =
+   0    1    2 
+   1    2    3 
+   2    3    4 
+m2 =
+   5    5    5 
+   5    5    5 
+   5    5    5 
+m1 + m2 =
+   5    6    7 
+   6    7    8 
+   7    8    9 
+m1 =
+   0    2    4 
+   1    3    5 
+   2    4    6 
+transpose m1 =
+   0    1    2 
+   2    3    4 
+   4    5    6 
+m1 =
+   0    2    4 
+   1    3    5 
+   2    4    6 
+delete row 0 from m1 =
+   1    3    5 
+   2    4    6 
+m1 =
+   0    2    4 
+   1    3    5 
+   2    4    6 
+delete column 1 from m1 =
+   0    4 
+   1    5 
+   2    6 
+m1 =
+   0    2    4 
+   1    3    5 
+   2    4    6 
+transpose m1 =
+   0    1    2 
+   2    3    4 
+   4    5    6 
+delete row 0 =
+   2    3    4 
+   4    5    6 
+m1 =
+   0   -1   -2 
+   3    2    1 
+   6    5    4 
+delete row 1 =
+   0   -1   -2 
+   6    5    4 
+transpose =
+   0    6 
+  -1    5 
+  -2    4 
+m1 =
+   0    2    4 
+   1    3    5 
+   2    4    6 
+transpose m1 =
+   0    1    2 
+   2    3    4 
+   4    5    6 
+delete column 1 =
+   0    2 
+   2    4 
+   4    6 
+m1 =
+   0   -1   -2 
+   3    2    1 
+   6    5    4 
+delete column 2 =
+   0   -1 
+   3    2 
+   6    5 
+transpose =
+   0    3    6 
+  -1    2    5 
+m1 =
+   0   -1   -2 
+   3    2    1 
+   6    5    4 
+delete column 2 =
+   0   -1 
+   3    2 
+   6    5 
+delete row 1 =
+   0   -1 
+   6    5 
+delete column 1 =
+   0 
+   6 
+delete row 0 =
+   6 
+m1 =
+   0   -1   -2   -3   -4 
+   3    2    1    0   -1 
+   6    5    4    3    2 
+   9    8    7    6    5 
+  12   11   10    9    8 
+delete row 0 =
+   3    2    1    0   -1 
+   6    5    4    3    2 
+   9    8    7    6    5 
+  12   11   10    9    8 
+transpose =
+   3    6    9   12 
+   2    5    8   11 
+   1    4    7   10 
+   0    3    6    9 
+  -1    2    5    8 
+delete row 0 =
+   2    5    8   11 
+   1    4    7   10 
+   0    3    6    9 
+  -1    2    5    8 
+transpose =
+   2    1    0   -1 
+   5    4    3    2 
+   8    7    6    5 
+  11   10    9    8 
+delete row 0 =
+   5    4    3    2 
+   8    7    6    5 
+  11   10    9    8 
+transpose =
+   5    8   11 
+   4    7   10 
+   3    6    9 
+   2    5    8 
+delete row 0 =
+   4    7   10 
+   3    6    9 
+   2    5    8 
+transpose =
+   4    3    2 
+   7    6    5 
+  10    9    8 
+delete row 0 =
+   7    6    5 
+  10    9    8 
+transpose =
+   7   10 
+   6    9 
+   5    8 
+delete row 0 =
+   6    9 
+   5    8 
+transpose =
+   6    5 
+   9    8 
+delete row 0 =
+   9    8 
+transpose =
+   9 
+   8 
+delete row 0 =
+   8 
+transpose =
+   8 
+m1 =
+   0   -1   -2   -3   -4 
+   3    2    1    0   -1 
+   6    5    4    3    2 
+   9    8    7    6    5 
+  12   11   10    9    8 
+delete row 4 =
+   0   -1   -2   -3   -4 
+   3    2    1    0   -1 
+   6    5    4    3    2 
+   9    8    7    6    5 
+transpose =
+   0    3    6    9 
+  -1    2    5    8 
+  -2    1    4    7 
+  -3    0    3    6 
+  -4   -1    2    5 
+delete row 4 =
+   0    3    6    9 
+  -1    2    5    8 
+  -2    1    4    7 
+  -3    0    3    6 
+transpose =
+   0   -1   -2   -3 
+   3    2    1    0 
+   6    5    4    3 
+   9    8    7    6 
+delete row 3 =
+   0   -1   -2   -3 
+   3    2    1    0 
+   6    5    4    3 
+transpose =
+   0    3    6 
+  -1    2    5 
+  -2    1    4 
+  -3    0    3 
+delete row 3 =
+   0    3    6 
+  -1    2    5 
+  -2    1    4 
+transpose =
+   0   -1   -2 
+   3    2    1 
+   6    5    4 
+delete row 2 =
+   0   -1   -2 
+   3    2    1 
+transpose =
+   0    3 
+  -1    2 
+  -2    1 
+delete row 2 =
+   0    3 
+  -1    2 
+transpose =
+   0   -1 
+   3    2 
+delete row 1 =
+   0   -1 
+transpose =
+   0 
+  -1 
+delete row 1 =
+   0 
+transpose =
+   0 
