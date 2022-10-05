@@ -1,0 +1,20 @@
+
+********** TestShrink1 **********
+push_back 8 integers:
+0  1  2  3  4  5  6  7  (size=8, capacity=8, allocs=4)
+shrink:
+0  1  2  3  4  5  6  7  (size=8, capacity=8, allocs=4)
+pop last 3:
+0  1  2  3  4  (size=5, capacity=8, allocs=4)
+shrink:
+0  1  2  3  4  (size=5, capacity=5, allocs=5)
+push_back one integer:
+0  1  2  3  4  100  (size=6, capacity=10, allocs=6)
+shrink:
+0  1  2  3  4  100  (size=6, capacity=6, allocs=7)
+shrink:
+0  1  2  3  4  100  (size=6, capacity=6, allocs=7)
+clear:
+(size=0, capacity=0, allocs=7)
+shrink:
+(size=0, capacity=0, allocs=7)

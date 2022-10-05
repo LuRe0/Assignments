@@ -1,0 +1,42 @@
+10 10
+y
+2 2
+s
+fflllrffrrfffflrlrff
+y
+3 8
+n
+ffrfllflrlffrrflffrf
+y
+8 2
+w
+lfflflfffflrrlrffrrf
+y
+2 6
+s
+flrffflrrfrlflfflffr
+y
+5 7
+s
+flfrrlfrlffffffflrlr
+y
+4 9
+s
+rfllflflffrrrffrfflf
+y
+9 3
+n
+flrffrrfllflfrflffrf
+y
+5 2
+s
+fflffrfflfffrrlrrfll
+y
+9 8
+e
+rflrffflfrrffffrlfll
+y
+3 2
+s
+llffffrfffflrflrrrlf
+n

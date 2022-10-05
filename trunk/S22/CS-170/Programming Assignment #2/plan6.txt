@@ -1,0 +1,42 @@
+5 15
+y
+2 1
+n
+fllflfffrfflrffrlrrf
+y
+0 13
+s
+rffflllrrfllffffrrff
+y
+2 13
+w
+rfrfflfrlflflfrrfflf
+y
+1 9
+s
+frfrrrlflffffrflfllf
+y
+1 8
+w
+lffffrllrfrrlfffflrf
+y
+0 12
+n
+rflfffrfllrffrflflfr
+y
+1 8
+e
+frflfrfrflrffflrlffl
+y
+4 4
+w
+rfrlfffllrfflfffrlrf
+y
+3 4
+s
+frlflrlrflfffffrrlff
+y
+1 11
+n
+flrflfffrrflfflffrlr
+n

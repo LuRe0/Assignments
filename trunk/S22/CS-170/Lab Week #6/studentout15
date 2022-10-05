@@ -1,0 +1,10 @@
+
+********** TestAdd3 **********
+push_back 5 integers:
+0  (size=1, capacity=1, allocs=1)
+0  1  (size=2, capacity=2, allocs=2)
+0  1  2  (size=3, capacity=4, allocs=3)
+0  1  2  3  (size=4, capacity=4, allocs=3)
+0  1  2  3  4  (size=5, capacity=8, allocs=4)
+a += a:
+0  1  2  3  4  0  1  2  3  4  (size=10, capacity=16, allocs=5)

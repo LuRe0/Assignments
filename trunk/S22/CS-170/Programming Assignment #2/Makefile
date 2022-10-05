@@ -1,0 +1,31 @@
+PRG=gcc0.exe 
+
+GCC=g++
+GCCFLAGS=-O2 -Wall -Wextra --std=c++03 -pedantic -Wold-style-cast -Wsign-promo  -Wctor-dtor-privacy 
+
+OBJECTS0=grid.cpp robot.cpp 
+DRIVER0=driver.cpp
+
+VALGRIND_OPTIONS=-q --leak-check=full
+
+DIFF_OPTIONS=--strip-trailing-cr --ignore-trailing-space
+
+OSTYPE := $(shell uname)
+ifeq (,$(findstring CYGWIN,$(OSTYPE)))
+CYGWIN=
+else
+CYGWIN=-Wl,--enable-auto-import
+endif
+
+
+gcc0:
+	$(GCC) -o $(PRG) $(DRIVER0) $(OBJECTS0) $(GCCFLAGS) 
+0 1 2 3 4 5 6:
+	@echo "running test$@"
+	./$(PRG) < plan$@.txt >studentout$@
+	diff out$@ studentout$@ $(DIFF_OPTIONS) > difference$@ 2>&1
+mem0 mem1 mem2 mem3 mem4 mem5 mem6:
+	echo "running memory test $@"
+	valgrind $(VALGRIND_OPTIONS) ./$(PRG) <plan$(subst mem,,$@).txt 1>/dev/null 2>difference$@
+clean:
+	rm -f *.exe *.o

@@ -1,0 +1,61 @@
+For this lab you will be adding a few simple, but very important methods.
+Make sure to double check that you understand how they work.
+
+// Swaps the contents of other with this Vector (Constant time)
+void swap( Vector &other );
+===========================
+many algorithms require 2 objects to exchange values - swap. 
+For simple objects the standard swap using temporary copy is all 
+you need. To swap A and B:
+t = A; // save value of A
+A = B; 
+B = t; // use the saved value
+But in a situation with dynamically allocated arrays the algorithm may be 
+significantly improved. Let's say we have two dynamically allocated arrays:
+int * p1 = new int[20]; // initialize somehow
+int * p2 = new int[30]; // initialize somehow
+to swap arrays we may simply swap the pointers:
+int * temp = p1;
+p1 = p2;
+p2 = temp;
+why does it work? Since we ONLY access arrays through the pointers p1 and p2, 
+swapping pointers makes the user see the arrays also swapped.
+
+ Word of caution:
+ it is absolutely important that there are no other ways of accessing arrays. 
+ If there is another way, then it will continue showing values as they were before (unswapped).
+
+notice you are provided swap_int and swap_pointers (see header)
+make sure to use them.
+
+
+// Reverses the order of the elements (Linear time)
+void reverse();
+===========================
+1 2 3 4 5 6 7 8 9 0 
+| | | | | | | | | |
+| | | | +-+ | | | |
+| | | +-----+ | | |
+| | +---------+ | |
+| +-------------+ |
++-----------------+
+reversing a collection can be done by swapping pair of elements.
+Start at index 0 and size-1 and move them towards the middle.
+make sure to stop when 2 indicies "meet".
+
+
+
+// Equality operator (Linear time)
+// Both vectors must be the same size.
+bool operator==(const Vector& rhs) const;
+===========================
+very similar to BigInt - first compare sizes, if sizes
+are equal - start compating element at the corresponding positions.
+
+
+// Reallocates an array to match the size of the number 
+// of elements. If size == capacity, does nothing. 
+void shrink_to_fit();
+===========================
+similar to grow, but instead of increasing the capacity - decrease it to
+be exactly the size of the vector.

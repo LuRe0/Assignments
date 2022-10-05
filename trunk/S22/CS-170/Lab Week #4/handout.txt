@@ -1,0 +1,7 @@
+For this week's lab, you will take your previous lab implementations for a
+linked list and create a class out of them. 
+
+Implement all of the methods in a file called List.cpp. (Notice the
+capitalization.) You'll have to remove some methods. For example, since
+you now have a destructor, you need to remove the FreeList method (or make it
+private, if you still wish to use it from your destructor).

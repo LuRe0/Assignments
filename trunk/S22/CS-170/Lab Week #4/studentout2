@@ -1,0 +1,12 @@
+
+******************** TestInsert1 ********************
+List1 ( 1 nodes): 12   
+List1 ( 2 nodes): 12   34   
+List1 ( 3 nodes): 12   34   21   
+List1 ( 4 nodes): 12   34   21   56   
+List1 ( 5 nodes): 12   34   21   56   38   
+Inserting... 91 at position 3
+12   34   21   91   56   38   Inserting... 92 at position 0
+92   12   34   21   91   56   38   Inserting... 93 at position 7
+92   12   34   21   91   56   38   93   Inserting... 94 at position 9
+92   12   34   21   91   56   38   93   

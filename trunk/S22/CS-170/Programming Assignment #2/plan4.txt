@@ -1,0 +1,402 @@
+15 15
+y
+10 5
+e
+flfffrfffffrrfffrrllfrllrlfl
+y
+1 6
+n
+frrlrfflfrffffrlrlflrlfffflf
+y
+13 0
+n
+lfrffflrfrrlflrfflfrfffflflr
+y
+4 0
+n
+lfrrflfflfffrrlrflffflfrfrlf
+y
+0 5
+w
+rfrlfrffflffrrfllllrffflfffr
+y
+14 2
+n
+rfrfrfllfrffffrlflflrflfflrf
+y
+14 12
+s
+lfflfffrrfrlfffrflfrffrrllfl
+y
+6 5
+e
+frfffrfffrflrrrllffrlffllffl
+y
+3 13
+e
+llffrfrfrfffllffflfrlrrrlfff
+y
+14 13
+s
+fffllrrrrffrllfrlffflflfrfff
+y
+11 1
+w
+frflfrllrflrllffrfrffffrflff
+y
+8 13
+w
+lfrfflfrflffllffflfrrrffflrr
+y
+1 0
+s
+frrfrfflrrflfrfffflffllrffll
+y
+5 8
+s
+frfllfffrllfffrffrrlrlfflrff
+y
+4 14
+n
+llfrfrflrrfffrffffllflrfflrf
+y
+5 4
+s
+ffflfrfrflrlflffrffrrfflrlfl
+y
+11 6
+w
+rfrllrfllffrffrffflffffllfrr
+y
+0 13
+n
+ffrffrllrflrfffrfrfllfffllfr
+y
+9 8
+e
+lrflrffffrlrrrrllffflflfffff
+y
+11 5
+n
+frflfllfffrfrlffflflffrlfrrr
+y
+11 2
+n
+frllfffllrrrfffffffrlrllffrf
+y
+11 14
+w
+lllffrlrrffffflrlffrflfffrrf
+y
+8 10
+n
+flrlfrflfflrfrlfrrrlflffffff
+y
+4 13
+n
+lfllrrfffflflffrfrrfrlffrflf
+y
+10 10
+s
+ffrrflffllrffflrfrrrlfflflff
+y
+9 14
+n
+flflfllrrfrlfrrrfffffffffllr
+y
+11 8
+e
+rfrffffrlfflfrffrlfrflflflrl
+y
+11 2
+s
+rfrfrflffrlfffflrllrlffrfflf
+y
+7 14
+e
+fffflfrllrlfrfrrllfrffffflfr
+y
+14 12
+n
+lrffffllfrffrfllfrflrlrrffff
+y
+13 3
+s
+lllrrrllfrffrffrlfflfrffffff
+y
+5 5
+w
+lrlffffffrfffrflrlfrlrffrfll
+y
+9 6
+s
+ffflfflflfflffrllrrfffrfrrlr
+y
+14 0
+e
+flrlrlfflfflfrrlrrfffffflffr
+y
+10 1
+n
+lfffffffrflrflrrrflffllfrlfr
+y
+2 10
+w
+rffffrlrfrfffrfllrlfffrflllf
+y
+4 10
+w
+lffrlffflflfrrfrrllfffffrflr
+y
+12 0
+e
+ffrrfllffrlfrfffrfflllfrflrf
+y
+7 2
+n
+lrfrlrffflfflflrffrflfrfrffl
+y
+7 9
+e
+lrfllfflfrfffffrfflfrlrrrlff
+y
+13 12
+e
+fflrflfrfrffffffrrlrrllflflf
+y
+14 1
+e
+fflllrrflrffrrrflfflfflffffr
+y
+6 10
+e
+rfllrlrlffflfffrfrlfffffrlfr
+y
+0 6
+e
+rffflfrflffflrfrlrffrllfrflf
+y
+3 2
+n
+frflrffrrrfllfrfflflfffrlflf
+y
+11 2
+w
+lrlflfrffflfrrlfffffrflfrfrl
+y
+10 1
+n
+flffrffffrrfrffrlrffllrllflf
+y
+2 12
+n
+fffrffrffrflfrrffllrlrllfflf
+y
+5 10
+w
+rffflfrllrfffflrfffrfllflrfr
+y
+14 0
+n
+frrfrfllfrfrlffffffrrlfflfll
+y
+5 9
+s
+rfflffrffllrlrffflrrlffflfrf
+y
+3 4
+s
+lfrflfrllffrlrlffffffrlrffrf
+y
+13 1
+e
+lrffffrrrfrflrffflllffflfrlf
+y
+4 5
+e
+fffflrlrfrlffrrfffflfrrllffl
+y
+1 11
+s
+flllrfflrrrffflfffrfffrlrlff
+y
+12 12
+e
+ffrffrflrllflrfffflflrfffrrl
+y
+1 0
+e
+frrlfflffllrlffllffrrfffffrr
+y
+11 2
+w
+ffrffflfrrflrffrlfffllfrfrll
+y
+0 8
+e
+ffflfflfrfrfrflflfffrlfrrlrl
+y
+0 8
+s
+llffflfrrflflrlrflffrfffrfrf
+y
+9 10
+e
+lfrfrlflffrrfffflrrfflflrlff
+y
+11 3
+n
+fffflrrlrlllffrffflrlrfrffff
+y
+4 10
+w
+lffrrfffrffllfffflrfrrrlllff
+y
+13 14
+w
+flfflrflfrlrfflfrfrffrffrfll
+y
+10 5
+e
+frflrrlfffrllfrfrlffflflfffr
+y
+6 9
+s
+lffffffrflfllfflrrrllffrfrfr
+y
+0 10
+e
+frlfrfrllrrfrfrffffffflflllf
+y
+11 0
+s
+fflffrllrrlfffflrffrflrfflfr
+y
+7 14
+e
+rffllfffflrfflrlfrrrffllfffr
+y
+12 10
+w
+flrrlfrlffrffffflflfflfrfrrl
+y
+0 4
+n
+rfflflffrrfrffrlfrfflllflfrf
+y
+8 10
+s
+fffrflffrlfllfrfflrfrfrflfrl
+y
+5 7
+s
+fffrfrllflrfrfflfrffrlfrlffl
+y
+8 6
+e
+ffffrlfffrfrflrlffrlfllfflrr
+y
+11 12
+s
+ffrrfffrlfrlfllrfffflrlflfrf
+y
+8 6
+e
+ffllfrffrlfrlllffflfrrrfrfff
+y
+12 13
+n
+frrfffffrlfffrrllfflfllfrlfr
+y
+5 13
+s
+flrllfrflffrfffrfllffflfrrrf
+y
+2 13
+n
+ffrflrlfflrlflffffrrrfffrlfl
+y
+1 6
+e
+flflfrfllflflrlrfrfrfffffrfr
+y
+8 5
+n
+fllfffflffrrlrffflllrrfrrfff
+y
+4 13
+e
+rfflrlrfrlrfrffllffrffflfflf
+y
+2 6
+n
+lrlflrffllfrrffffrfflrlffffr
+y
+13 8
+s
+rllffffflffrfflrrfrflrrfflfl
+y
+13 5
+w
+rlrrrffffffrffrflfflflfllflr
+y
+6 10
+w
+fflflrfffflrfrlfffrrlflrflfr
+y
+4 3
+e
+rffrlrflfllflffflfrflrrffrff
+y
+7 12
+e
+flfrfflfrflllffrlrfffrrrfflf
+y
+5 5
+w
+rlffrrfllfffflflflffrrlffrrf
+y
+2 10
+n
+rffllffrlfrffrfllrfflfffrflr
+y
+11 11
+w
+rrfffrrlrlffflfrflfflffrllff
+y
+9 13
+e
+flrlflrfffflfrllrfrffrfffflr
+y
+6 6
+e
+frlrfllrlfffrfffflfffrrrffll
+y
+0 1
+n
+lrllfrrfffrrffffflllffffrlrf
+y
+10 11
+n
+fflffrrfrlflflfrlflflfrfrrff
+y
+12 3
+s
+ffflllrlflfflrrfrrffffrfflrf
+y
+14 3
+w
+ffllfrfrffffffrlrlfffllfrrrl
+y
+0 4
+n
+lrlrflfflflrffflrrfflffrfrff
+y
+6 1
+e
+frffllflffrrlfllfffffrfrrlfr
+y
+12 12
+e
+fffllfffrllffrlfrlfrffrfrrfl
+n
