@@ -1,0 +1,54 @@
+if (first_year < second_year
+    && first_month != second_month
+    && first_day != second_day)
+{
+  printf("%2.2d/%2.2d/%2.2d comes after %2.2d/%2.2d/%2.2d.\n",
+  first_month,first_day,first_year,
+  second_month,second_day,second_year );	 		
+}
+
+/* Checks which months comes first regardless of day or year */
+if(first_year == second_year
+   && first_month != second_month)
+{
+ if(first_month < second_month)
+  {
+    printf("%2.2d/%2.2d/%2.2d comes before %2.2d/%2.2d/%2.2d.\n",
+    first_month,first_day,first_year,
+    second_month,second_day,second_year );  
+  }
+  else
+  {
+  printf("%2.2d/%2.2d/%2.2d comes after %2.2d/%2.2d/%2.2d.\n",
+  first_month,first_day,first_year,
+  second_month,second_day,second_year );
+  }
+		  
+}
+
+if(first_year == second_year 
+   && first_month == second_month 
+   && first_day != second_day)
+{
+  if(first_day < second_day)
+  {
+    printf("%2.2d/%2.2d/%2.2d comes before %2.2d/%2.2d/%2.2d.\n",
+    first_month,first_day,first_year,
+    second_month,second_day,second_year );
+  }
+  else
+  {
+    printf("%2.2d/%2.2d/%2.2d comes after %2.2d/%2.2d/%2.2d.\n",
+    first_month,first_day,first_year,
+    second_month,second_day,second_year ); 
+  }  
+}
+
+if(first_year == second_year
+   && first_month == second_month 
+   && first_day == second_day)
+{
+  printf("%2.2d/%2.2d/%2.2d and %2.2d/%2.2d/%2.2d are the same date.\n",
+  first_month,first_day,first_year,
+  second_month,second_day,second_year );   
+}

@@ -1,0 +1,55 @@
+/******************************************************************************
+filename    pi.c
+author      Anthon Reid
+DP email    anthon.reid@digipen.edu
+course      CS120
+section     A
+lab week    2
+due date    10/09/2021
+
+Brief Description:
+  This program calculates the value of pi using the The Leibniz Method 
+  and The Circle Method. 
+  
+******************************************************************************/
+#include <stdio.h>
+#include <math.h>
+
+double circle_pi(int rectangles);  /* Calculates PI using a quarter circle */
+double leibniz_pi(int iterations); /* Calculates PI using a series         */
+
+double circle_pi(int rectangles)  /* Calculates PI using a quarter circle */
+{
+  double radius = 2;
+  double width = radius / rectangles;
+  double midpoint = 0 ;
+  double height = 0;
+  double area = 0;
+  int i;
+
+  for(i = 0; i < rectangles; i++)
+  {
+    midpoint = (width / 2) + (width * i);
+    height = sqrt((radius * radius) - (midpoint * midpoint));
+    area += width * height;
+  }
+  return area;
+}
+
+
+double leibniz_pi(int iterations) /* Calculates PI using a series         */
+{
+  double denominator = 1;
+  double numerator = 1;
+  double pi = 0;
+  int i =0;
+  
+  while (i < iterations )
+  {
+     pi += numerator/denominator ;
+     denominator += 2;
+     numerator *= -1; 
+     i++;
+  }
+  return pi * 4;  
+}

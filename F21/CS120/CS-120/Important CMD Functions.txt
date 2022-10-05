@@ -1,0 +1,42 @@
+gcc -c simple.c -o simple.o
+gcc simple.o -o simple.exe
+
+notepad++ simple.c
+cpp simple.c -o simple.i
+gcc -fpreprocessed -S simple.i -o simple.s
+as simple.s -o simple.o
+simple.exe
+
+
+gcc simple.c -o simple
+gcc simple.c -o simple.exe
+
+
+myprogram > out.txt
+myprogram < in.txt
+
+
+gcc -Wall -Wextra -Werror -ansi -pedantic marathon.c -o marathon
+marathon > output.txt
+diff output-master.txt output.txt --strip-trailing-cr
+
+
+
+/******************************************************************************
+filename    triple_cubes.c
+author      Anthon Reid
+DP email    anthon.reid@digipen.edu
+course      CS120
+section     A
+lab week    2
+due date    12/25/2025
+
+Brief Description:
+  This program calculates the distance to the moon using only a compass
+  and a straight-edge. 
+  
+******************************************************************************/
+
+numbers < input1.txt > myoutput1.txt
+
+#include <stdio.h> 
