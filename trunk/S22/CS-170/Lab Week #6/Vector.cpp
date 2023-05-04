@@ -90,10 +90,10 @@ namespace CS170 {
           grow();
       }
 
-      for (int i = size_ - 1 ; i >= 0; --i)
-      {
-          array_[i + 1] = array_[i];
-      }
+      //for (int i = size_ - 1 ; i >= 0; --i)
+      //{
+      //    array_[i + 1] = array_[i];
+      //}
       array_[0] = value;
       ++size_;
   }
