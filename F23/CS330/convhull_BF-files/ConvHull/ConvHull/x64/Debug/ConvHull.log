@@ -1,0 +1,72 @@
+﻿  hull-bruteforce.cpp
+C:\Users\lucre\Documents\CS330\convhull_BF-files\hull-bruteforce.cpp(55,32): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\lucre\Documents\CS330\convhull_BF-files\hull-bruteforce.cpp(134,30): warning C4267: 'argument': conversion from 'size_t' to '_Ty', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\lucre\Documents\CS330\convhull_BF-files\hull-bruteforce.cpp(167,30): warning C4267: 'argument': conversion from 'size_t' to '_Ty', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xmemory(673,1): warning C4267: 'initializing': conversion from 'size_t' to '_Objty', possible loss of data
+          with
+          [
+              _Objty=int
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xtree(806,1): message : see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,size_t&>(_Alloc &,_Objty *const ,size_t &)' being compiled
+          with
+          [
+              _Alloc=std::allocator<std::_Tree_node<int,std::_Default_allocator_traits<std::allocator<int>>::void_pointer>>,
+              _Ty=int,
+              _Objty=int
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xtree(807,34): message : see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,size_t&>(_Alloc &,_Objty *const ,size_t &)' being compiled
+          with
+          [
+              _Alloc=std::allocator<std::_Tree_node<int,std::_Default_allocator_traits<std::allocator<int>>::void_pointer>>,
+              _Ty=int,
+              _Objty=int
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xtree(994,20): message : see reference to function template instantiation 'std::_Tree_temp_node<std::allocator<std::_Tree_node<int,std::_Default_allocator_traits<_Alloc>::void_pointer>>>::_Tree_temp_node<size_t&>(_Alnode &,std::_Tree_node<int,std::_Default_allocator_traits<_Alloc>::void_pointer> *,size_t &)' being compiled
+          with
+          [
+              _Alloc=std::allocator<int>,
+              _Alnode=std::allocator<std::_Tree_node<int,std::_Default_allocator_traits<std::allocator<int>>::void_pointer>>
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xtree(1010,46): message : see reference to function template instantiation 'std::_Tree_temp_node<std::allocator<std::_Tree_node<int,std::_Default_allocator_traits<_Alloc>::void_pointer>>>::_Tree_temp_node<size_t&>(_Alnode &,std::_Tree_node<int,std::_Default_allocator_traits<_Alloc>::void_pointer> *,size_t &)' being compiled
+          with
+          [
+              _Alloc=std::allocator<int>,
+              _Alnode=std::allocator<std::_Tree_node<int,std::_Default_allocator_traits<std::allocator<int>>::void_pointer>>
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xtree(1031,20): message : see reference to function template instantiation 'std::pair<std::_Tree_node<int,std::_Default_allocator_traits<_Alloc>::void_pointer> *,bool> std::_Tree<std::_Tset_traits<_Kty,_Pr,_Alloc,false>>::_Emplace<size_t&>(size_t &)' being compiled
+          with
+          [
+              _Alloc=std::allocator<int>,
+              _Kty=int,
+              _Pr=std::less<int>
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\xtree(1032,30): message : see reference to function template instantiation 'std::pair<std::_Tree_node<int,std::_Default_allocator_traits<_Alloc>::void_pointer> *,bool> std::_Tree<std::_Tset_traits<_Kty,_Pr,_Alloc,false>>::_Emplace<size_t&>(size_t &)' being compiled
+          with
+          [
+              _Alloc=std::allocator<int>,
+              _Kty=int,
+              _Pr=std::less<int>
+          ]
+C:\Users\lucre\Documents\CS330\convhull_BF-files\hull-bruteforce.cpp(96,28): message : see reference to function template instantiation 'std::pair<std::_Tree_const_iterator<std::_Tree_val<std::_Tree_simple_types<int>>>,bool> std::_Tree<std::_Tset_traits<_Kty,_Pr,_Alloc,false>>::emplace<size_t&>(size_t &)' being compiled
+          with
+          [
+              _Kty=int,
+              _Pr=std::less<int>,
+              _Alloc=std::allocator<int>
+          ]
+C:\Users\lucre\Documents\CS330\convhull_BF-files\hull-bruteforce.cpp(96,26): message : see reference to function template instantiation 'std::pair<std::_Tree_const_iterator<std::_Tree_val<std::_Tree_simple_types<int>>>,bool> std::_Tree<std::_Tset_traits<_Kty,_Pr,_Alloc,false>>::emplace<size_t&>(size_t &)' being compiled
+          with
+          [
+              _Kty=int,
+              _Pr=std::less<int>,
+              _Alloc=std::allocator<int>
+          ]
+  ConvHull.vcxproj -> C:\Users\lucre\Documents\CS330\convhull_BF-files\ConvHull\x64\Debug\ConvHull.exe
