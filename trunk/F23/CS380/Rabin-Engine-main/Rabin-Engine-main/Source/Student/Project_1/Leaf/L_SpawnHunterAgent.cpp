@@ -23,14 +23,14 @@ void L_SpawnHunterAgent::on_update(float dt)
 
 
 		hunter->get_blackboard().set_value("MinimumRadius", 15.0f);
-		hunter->get_blackboard().set_value("ShootingRadius", 25.0f);
-		hunter->get_blackboard().set_value("ChaseRadius", 30.0f);
+		hunter->get_blackboard().set_value("ShootingRadius", 10.0f);
+		hunter->get_blackboard().set_value("ChaseRadius", 100.0f);
 
 		hunter->get_blackboard().set_value("TargetType", type);
 		hunter->get_blackboard().set_value("Prey", etype);
 
 
-		hunter->set_movement_speed(7);
+		hunter->set_movement_speed(12);
 
 		hunter->set_scaling(Vec3(0.5,0.5,0.5));
 		//hunter->set_color(Vec3(0.5,0.5,0.5));

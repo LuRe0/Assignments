@@ -22,6 +22,8 @@ void D_CheckForGuardAgents::on_enter()
         on_failure();
     }
 
+
+    //on_failure();
 }
 
 void D_CheckForGuardAgents::on_update(float dt)

@@ -264,6 +264,7 @@
     <ClInclude Include="Source\Student\Project_1\Decorator\D_Timer.h" />
     <ClInclude Include="Source\Student\Project_1\Leaf\L_CheckMouseClick.h" />
     <ClInclude Include="Source\Student\Project_1\Leaf\L_DestroyAgent.h" />
+    <ClInclude Include="Source\Student\Project_1\Leaf\L_DestroyAgentOnLeaveMap.h" />
     <ClInclude Include="Source\Student\Project_1\Leaf\L_FaceRandomAgent.h" />
     <ClInclude Include="Source\Student\Project_1\Leaf\L_FleeingBehaviour.h" />
     <ClInclude Include="Source\Student\Project_1\Leaf\L_FlockingBehaviour.h" />
@@ -273,6 +274,7 @@
     <ClInclude Include="Source\Student\Project_1\Leaf\L_MoveToRandomPosition.h" />
     <ClInclude Include="Source\Student\Project_1\Leaf\L_MoveTowardsVelocity.h" />
     <ClInclude Include="Source\Student\Project_1\Leaf\L_PlaySound.h" />
+    <ClInclude Include="Source\Student\Project_1\Leaf\L_PursuingBehaviour.h" />
     <ClInclude Include="Source\Student\Project_1\Leaf\L_ShootAtTarget.h" />
     <ClInclude Include="Source\Student\Project_1\Leaf\L_SpawnFlocks.h" />
     <ClInclude Include="Source\Student\Project_1\Leaf\L_SpawnGuards.h" />
@@ -361,6 +363,7 @@
     <ClCompile Include="Source\Student\Project_1\Decorator\D_Timer.cpp" />
     <ClCompile Include="Source\Student\Project_1\Leaf\L_CheckMouseClick.cpp" />
     <ClCompile Include="Source\Student\Project_1\Leaf\L_DestroyAgent.cpp" />
+    <ClCompile Include="Source\Student\Project_1\Leaf\L_DestroyAgentOnLeaveMap.cpp" />
     <ClCompile Include="Source\Student\Project_1\Leaf\L_FaceRandomAgent.cpp" />
     <ClCompile Include="Source\Student\Project_1\Leaf\L_FleeingBehaviour.cpp" />
     <ClCompile Include="Source\Student\Project_1\Leaf\L_FlockingBehaviour.cpp" />
@@ -370,6 +373,7 @@
     <ClCompile Include="Source\Student\Project_1\Leaf\L_MoveToRandomPosition.cpp" />
     <ClCompile Include="Source\Student\Project_1\Leaf\L_MoveTowardsVelocity.cpp" />
     <ClCompile Include="Source\Student\Project_1\Leaf\L_PlaySound.cpp" />
+    <ClCompile Include="Source\Student\Project_1\Leaf\L_PursuingBehaviour.cpp" />
     <ClCompile Include="Source\Student\Project_1\Leaf\L_ShootAtTarget.cpp" />
     <ClCompile Include="Source\Student\Project_1\Leaf\L_SpawnFlocks.cpp" />
     <ClCompile Include="Source\Student\Project_1\Leaf\L_SpawnGuards.cpp" />

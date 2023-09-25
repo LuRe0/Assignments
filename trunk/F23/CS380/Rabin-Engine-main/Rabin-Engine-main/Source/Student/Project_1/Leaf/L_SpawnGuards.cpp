@@ -19,12 +19,19 @@ void L_SpawnGuards::on_update(float dt)
 	int count = 0;
 	for (size_t i = 0; i < num; i++)
 	{
-		BehaviorAgent* guards = agents->create_behavior_agent("Guards", BehaviorTreeTypes::Example);
+		BehaviorAgent* guards = agents->create_behavior_agent("Guards", BehaviorTreeTypes::BT_Guard);
 
 		if (guards)
 		{
-			char* type = "Bullet";
-			guards->get_blackboard().set_value("CollisionTarget", type);
+			char* etype = "Hunter";
+
+			guards->get_blackboard().set_value("ChaseRadius", 50.0f);
+
+			guards->get_blackboard().set_value("Velocity", Vec3(RNG::range(-agent->get_movement_speed(), agent->get_movement_speed()), 0, RNG::range(-agent->get_movement_speed(), agent->get_movement_speed())));
+
+			guards->get_blackboard().set_value("Prey", etype);
+
+			//guards->get_blackboard().set_value("CollisionTarget", type);
 
 			guards->set_scaling(Vec3(0.7, 0.7, 0.7));
 			guards->set_color(Vec3(1, 0, 0));
