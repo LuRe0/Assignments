@@ -10,6 +10,9 @@ protected:
 
     Agent* m_TargetAgent;
 
+    float m_ShootingDelay;
+    float m_ShootingTimer;
+
     virtual void on_enter() override;
     virtual void on_update(float dt) override;
 

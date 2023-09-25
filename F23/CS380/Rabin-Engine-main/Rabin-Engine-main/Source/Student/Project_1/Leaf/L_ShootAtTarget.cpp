@@ -2,7 +2,7 @@
 #include "L_ShootAtTarget.h"
 #include "Projects/ProjectOne.h"
 
-L_ShootAtTarget::L_ShootAtTarget() : m_TargetAgent(nullptr)
+L_ShootAtTarget::L_ShootAtTarget() : m_TargetAgent(nullptr), m_ShootingDelay(1.0f)
 {}
 
 void L_ShootAtTarget::on_enter()
@@ -56,11 +56,20 @@ void L_ShootAtTarget::on_enter()
 
 void L_ShootAtTarget::on_update(float dt)
 {
+    if (m_ShootingTimer > 0)
+    {
+        m_ShootingTimer -= dt;
+
+        return;
+    }
     const auto result = ShootBullets();
+
 
     if (result == true)
     {
         on_success();
+
+        m_ShootingTimer = m_ShootingDelay;
     }
     else
     {
@@ -73,24 +82,35 @@ void L_ShootAtTarget::on_update(float dt)
 bool L_ShootAtTarget::ShootBullets()
 {
 
-    //BehaviorAgent* bullet = agents->create_behavior_agent("Bullet", BehaviorTreeTypes::BT_Bullet);
+    BehaviorAgent* bullet = agents->create_behavior_agent("Bullet", BehaviorTreeTypes::BT_Bullet);
 
-    //if (bullet)
-    //{
+    if (bullet)
+    {
+        bullet->set_movement_speed(20);
+
+        Vec3 dir = m_TargetAgent->get_position() - agent->get_position();
 
 
-    //    Vec3 dir = m_TargetAgent->get_position() - agent->get_position();
+        dir.Normalize();
 
-    //    dir.Normalize();
+        const float yaw = std::atan2(dir.x, dir.z);
+        agent->set_yaw(yaw);
 
-    //    bullet->get_blackboard().set_value("Velocity", dir);
-    //    char* type = "Flocks";
-    //    bullet->get_blackboard().set_value("CollisionTarget", type);
+        dir.Normalize();
 
-    //    bullet->set_scaling(Vec3(0.5, 0.1, 0.5));
-    //    bullet->set_color(Vec3(0, 1, 0));
+        dir.y = 0;
 
-    //    return true;
-    //}
+        dir *= bullet->get_movement_speed();
+
+        bullet->get_blackboard().set_value("Velocity", dir);
+        char* type = "Flocks";
+        bullet->get_blackboard().set_value("CollisionTarget", type);
+
+        bullet->set_scaling(Vec3(0.2, 0.1, 0.2));
+        bullet->set_color(Vec3(0, 1, 0));
+        bullet->set_position(Vec3(agent->get_position().x, 1, agent->get_position().z));
+
+        return true;
+    }
     return false;
 }

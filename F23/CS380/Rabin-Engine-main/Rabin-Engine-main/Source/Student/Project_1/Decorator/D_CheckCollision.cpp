@@ -28,9 +28,18 @@ void D_CheckCollision::on_enter()
             if (distance <= m_Dist)
             {
                 m_HasCollided = true;
+              dynamic_cast<BehaviorAgent*>(a)->get_blackboard().set_value<bool>("CollisionHistory", true);
 
                 break;
             }
+        }
+    }
+
+    if (!m_HasCollided)
+    {
+        if (agent->get_type() == "Flocks")
+        {
+            m_HasCollided = agent->get_blackboard().get_value<bool>("CollisionHistory");
         }
     }
 

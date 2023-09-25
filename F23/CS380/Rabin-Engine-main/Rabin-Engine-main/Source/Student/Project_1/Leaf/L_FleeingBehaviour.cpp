@@ -28,7 +28,7 @@ void L_FleeingBehaviour::on_update(float dt)
 
 	
 
-		desiredVelocity *= (agent->get_movement_speed() * RNG::range(2.0f, 2.5f));
+		desiredVelocity *= (agent->get_movement_speed());
 
 		steeringVelocity = desiredVelocity - currentVelocity;
 

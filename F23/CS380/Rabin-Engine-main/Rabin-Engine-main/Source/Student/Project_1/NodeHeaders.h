@@ -50,3 +50,5 @@
 #include "Leaf/L_FleeingBehaviour.h"
 #include "Leaf/L_WanderingBehaviour.h"
 #include "Leaf/L_FlockingBehaviour.h"
+#include "Leaf/L_PursuingBehaviour.h"
+#include "Leaf/L_DestroyAgentOnLeaveMap.h"

@@ -28,6 +28,7 @@ void L_SpawnFlocks::on_update(float dt)
 			flock->get_blackboard().set_value("CollisionTarget", type);
 			flock->get_blackboard().set_value("MinimumRadius", 7.0f);
 			flock->get_blackboard().set_value("TargetType", eType);
+			flock->get_blackboard().set_value<bool>("CollisionHistory", false);
 
 			flock->set_movement_speed(10);
 
