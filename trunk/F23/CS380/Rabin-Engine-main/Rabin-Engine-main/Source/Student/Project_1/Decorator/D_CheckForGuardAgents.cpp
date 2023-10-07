@@ -14,7 +14,7 @@ void D_CheckForGuardAgents::on_enter()
     // and our agent's position
     if (allAgents.empty())
     {
-        agent->get_blackboard().set_value("MaxGuards", RNG::range(1, 10));
+        agent->get_blackboard().set_value("MaxGuards", RNG::range(3, m_Max));
         m_HasEnough = false;
     }
     else // couldn't find a viable agent

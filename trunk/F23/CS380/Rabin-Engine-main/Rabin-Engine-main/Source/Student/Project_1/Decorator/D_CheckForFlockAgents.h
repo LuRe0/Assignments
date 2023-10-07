@@ -13,5 +13,5 @@ protected:
 
     bool m_HasEnough;
 
-    const int m_Max = 200;
+    const int m_Max = 500;
 };
