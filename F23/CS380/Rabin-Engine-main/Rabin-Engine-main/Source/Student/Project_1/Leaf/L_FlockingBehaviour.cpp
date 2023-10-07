@@ -112,6 +112,44 @@ Vec3 L_FlockingBehaviour::Cohese(const std::vector<Agent*>& flockList, Vec3 curr
 	return steeringVelocity;
 }
 
+Vec3 L_FlockingBehaviour::ObjectAvoidance(Vec3 curr_velocity)
+{
+	int total = 0;
+	Vec3 steeringVelocity;
+	float distance = agent->get_blackboard().get_value<float>("MinimumRadius");
+	const auto& guardList = agents->get_all_agents_by_type("Guards");
+
+	for (const auto& a : guardList)
+	{
+		if (a != agent)
+		{
+			BehaviorAgent* other = dynamic_cast<BehaviorAgent*>(a);
+
+			Vec3 otherVelocity = other->get_blackboard().get_value<Vec3>("Velocity");
+
+			Vec3 nextAPos = other->get_position() + otherVelocity;
+			Vec3 nextPos = agent->get_position() + agent->get_blackboard().get_value<Vec3>("Velocity");
+
+			float d = Vec3::Distance(nextPos, nextAPos);
+
+			if (d < distance)
+			{
+				steeringVelocity += (curr_velocity - otherVelocity);
+
+				++total;
+			}
+		}
+	}
+
+
+	//if (total > 0)
+	//{
+	//	steeringVelocity /= (float)total;
+	//}
+
+	return steeringVelocity;
+}
+
 Vec3 L_FlockingBehaviour::Tether()
 {
 	Vec3 steeringVelocity;
@@ -151,6 +189,10 @@ void L_FlockingBehaviour::on_update(float dt)
 	steeringVelocity += Separate(flockList, currentVelocity);
 	steeringVelocity += Allign(flockList, currentVelocity);
 	steeringVelocity += Cohese(flockList, currentVelocity);
+	if (agent->get_type() == "Flocks")
+	{
+		steeringVelocity += ObjectAvoidance(currentVelocity);
+	}
 	steeringVelocity += Tether();
 
 	steeringVelocity.Normalize();

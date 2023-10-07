@@ -25,7 +25,7 @@ void L_SpawnGuards::on_update(float dt)
 		{
 			char* etype = "Hunter";
 
-			guards->get_blackboard().set_value("ChaseRadius", 50.0f);
+			guards->get_blackboard().set_value("ChaseRadius", 100.0f);
 
 			guards->get_blackboard().set_value("Velocity", Vec3(RNG::range(-agent->get_movement_speed(), agent->get_movement_speed()), 0, RNG::range(-agent->get_movement_speed(), agent->get_movement_speed())));
 

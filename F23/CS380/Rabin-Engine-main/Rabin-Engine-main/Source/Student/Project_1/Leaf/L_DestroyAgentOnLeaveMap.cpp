@@ -9,8 +9,8 @@ void L_DestroyAgentOnLeaveMap::on_enter()
 	BehaviorNode::on_leaf_enter();
 
 	Vec3 pos = agent->get_position();
-	if (pos.x < (0 - (terrain->mapSizeInWorld / 4)) ||
-		pos.z < (0 - (terrain->mapSizeInWorld / 4)) ||
+	if (pos.x < (0 - (terrain->mapSizeInWorld / 4.0f)) ||
+		pos.z < (0 - (terrain->mapSizeInWorld / 4.0f)) ||
 		pos.x > (terrain->mapSizeInWorld + (terrain->mapSizeInWorld / 4.0f)) ||
 		pos.z >(terrain->mapSizeInWorld + (terrain->mapSizeInWorld / 4.0f)))
 	{
