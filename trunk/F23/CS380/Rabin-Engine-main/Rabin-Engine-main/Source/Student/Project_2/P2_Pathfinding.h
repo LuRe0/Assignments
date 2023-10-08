@@ -53,6 +53,7 @@ private:
 		}
 	};
 
+
 public:
 	/*
 		The class should be default constructible, so you may need to define a constructor.
@@ -75,13 +76,13 @@ public:
 
 
 
-	static float Octile(int s_x, int s_y, int e_x, int e_y);
-	static float Manhattan(int s_x, int s_y, int e_x, int e_y);
-	static float Chebyshev(int s_x, int s_y, int e_x, int e_y);
-	static float Euclidean(int s_x, int s_y, int e_x, int e_y);
-	static float Inconsistent(int s_x, int s_y, int e_x, int e_y);
+	static float Octile(const GridPos& e, const GridPos& s);
+	static float Manhattan(const GridPos& e, const GridPos& s);
+	static float Chebyshev(const GridPos& e, const GridPos& s);
+	static float Euclidean(const GridPos& e, const GridPos& s);
+	static float Inconsistent(const GridPos& e, const GridPos& s);
 
-	float Cost(int s_x, int s_y, int e_x, int e_y);
+	float Cost(const GridPos& e, const GridPos& s);
 
 	Node* GetNode(int row, int col);
 	//class Buckets
@@ -103,16 +104,67 @@ public:
 
 		Node* Pop();
 
+		void Update();
+
+		void Clear();
+
+
+		bool Empty() const;
+
+	private:
+		std::vector<Node*> m_List;
+	};
+
+
+	class Buckets
+	{
+	public:
+		Buckets(int size, AStarPather* p);
+
+		~Buckets()
+		{}
+
+		//The size of each bucket should be tuned.Size of 1.0 is likely too big.
+		//	You need to choose a data structure to hold nodes inside each bucket(like Unsorted Array or Priority Queue).
+		
+
+		  
+		//	Update the pointer to the lowest bucket when you Pop a node(move it upward until you find a bucket with nodes).
+		
+		void Maintain();
+
+
+		//	If you Push a node into a bucket lower than the current Pointer, move the Pointer to that lower bucket.
+		void Push(Node* node);
+
+		Node* Pop();
+
 		void Update(Node* new_node);
+
 
 		void Clear();
 
 		bool Empty();
 
+
 	private:
-		typedef std::priority_queue<Node*, std::vector< Node* >, NodeSorter> AStar_Priority_Queue;
-		AStar_Priority_Queue m_List;
+
+		const float m_Range = 0.0195f;
+
+		std::vector<Queued_List> m_Buckets;
+
+		std::unordered_map<int, int> m_BucketHistory;
+
+		std::set<int> m_CurrentBucket;
+
+		int m_CurrentLowestBucket = 0;
+
+		int m_MaxBucket;
+
+		AStarPather* m_Parent;
+
 	};
+
 
 private:
 	//    //std::priority_queue<Node> m_OpenList;
@@ -134,16 +186,24 @@ private:
 
 	std::unordered_map<Direction, std::pair<int, int>> m_Dirs;
 
-	std::unordered_map<Heuristic, std::function<float (int s_x, int s_y, int e_x, int e_y)>> m_Heuristics;
+	std::unordered_map<Heuristic, std::function<float (const GridPos& e, const GridPos& s)>> m_Heuristics;
 
+	std::function<float(const GridPos& e, const GridPos& s)> m_CurrentHeuristic;
 
-	Queued_List m_OpenList;
+	Buckets m_OpenList = Buckets(2310, this);
 
 	int m_MapWidth;
 	int m_MapHeight;
 
 
 	unsigned m_CurrentMap;
+
+
+	static bool IsEmpty(const Queued_List& list) {
+		return list.Empty();
+	}
+
+	friend class Buckets;
 };
 
 

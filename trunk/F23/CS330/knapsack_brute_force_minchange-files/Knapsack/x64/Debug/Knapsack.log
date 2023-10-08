@@ -1,0 +1,8 @@
+﻿  driver.cpp
+C:\Users\lucre\Desktop\anthon.reid\F23\CS330\knapsack_brute_force_minchange-files\driver.cpp(42,5): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\lucre\Desktop\anthon.reid\F23\CS330\knapsack_brute_force_minchange-files\driver.cpp(59,5): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  knapsack_brute_force_minchange.cpp
+C:\Users\lucre\Desktop\anthon.reid\F23\CS330\knapsack_brute_force_minchange-files\knapsack_brute_force_minchange.cpp(87,26): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\lucre\Desktop\anthon.reid\F23\CS330\knapsack_brute_force_minchange-files\knapsack_brute_force_minchange.cpp(112,3): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Generating Code...
+  Knapsack.vcxproj -> C:\Users\lucre\Desktop\anthon.reid\F23\CS330\knapsack_brute_force_minchange-files\Knapsack\x64\Debug\Knapsack.exe
