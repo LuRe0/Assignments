@@ -44,6 +44,7 @@ bool AStarPather::initialize()
 
     Callback cb = std::bind(&AStarPather::InitializeNewMap, this);
 
+
     Messenger::listen_for_message(Messages::MAP_CHANGE, cb);
 
     m_Heuristics.emplace(Heuristic::OCTILE, &AStarPather::Octile);
@@ -123,18 +124,13 @@ PathResult AStarPather::compute_path(PathRequest &request)
             return PathResult::PROCESSING;
         }
 
+        m_CurrentHeuristic = m_Heuristics[request.settings.heuristic];
 
         m_OpenList.Clear();
-
-
-        ResetNodeData();
 
         Node* startPos = GetNode(start.row, start.col);
 
         m_OpenList.Push(startPos);
-		terrain->set_color(start, Colors::Orange);
-		terrain->set_color(goal, Colors::Orange);
-
     }
     //While(Open List is not empty) {
     while (!m_OpenList.Empty())
@@ -153,6 +149,9 @@ PathResult AStarPather::compute_path(PathRequest &request)
 
                 pathHead = pathHead->parent;
             }
+
+            request.path.push_front(terrain->get_world_position(pathHead->gridPos));
+
             return PathResult::COMPLETE;
         }
 
@@ -164,57 +163,48 @@ PathResult AStarPather::compute_path(PathRequest &request)
         {
             bool valid = (parentNode->mNeighbors & (1 << i));
 
-            if (valid)
-            {
-                std::pair<int, int> dir = m_Dirs.at((Direction)i);
+            if (!valid)
+                continue;
 
-                int row = parentNode->gridPos.row + dir.first;
-                int col = parentNode->gridPos.col + dir.second;
+			const std::pair<int, int>& dir = m_Dirs.at((Direction)i);
 
-                Node* neighbor = GetNode(row, col);
-                if (!neighbor)
-                    continue;
+			int row = parentNode->gridPos.row + dir.first;
+			int col = parentNode->gridPos.col + dir.second;
 
-            
-                float givenCost = parentNode->givenCost + Cost(parentNode->gridPos.row, parentNode->gridPos.col, neighbor->gridPos.row, neighbor->gridPos.col);
+			Node* neighbor = GetNode(row, col);
 
-                //Compute its cost, f(x) = g(x) + h(x)
-                float finalCost = givenCost + m_Heuristics[request.settings.heuristic]
-                                        (neighbor->gridPos.row, neighbor->gridPos.col, goalNode->gridPos.row, goalNode->gridPos.col) * request.settings.weight;
+			float givenCost = parentNode->givenCost + Cost(parentNode->gridPos, neighbor->gridPos);
 
-                //If child node isn’t on Open or Closed list, put it on Open List.
-                if (neighbor->list == NoList)
-                {
-                    neighbor->givenCost = givenCost;
-                    neighbor->finalCost = finalCost;
-                    neighbor->list = OpenList;
-                    neighbor->parent = parentNode;
-                    m_OpenList.Push(neighbor);
-                }
-                //Else if child node is on Open or Closed List,
-                else if (givenCost < neighbor->givenCost)
-                {
-                    //AND this new one is cheaper,
-                    
+			//Compute its cost, f(x) = g(x) + h(x)
+			float finalCost = givenCost + m_CurrentHeuristic(neighbor->gridPos, goalNode->gridPos) * request.settings.weight;
 
-					//then take the old expensive one off both lists and put this new
-					//cheaper one on the Open List.
-                    neighbor->givenCost = givenCost;
-                    neighbor->finalCost = finalCost;
-                    neighbor->parent = parentNode;
-					if (neighbor->list == ClosedList)
-					{
-						neighbor->list = OpenList;
-						m_OpenList.Push(neighbor);
-					}
-                    else 
-                    {
-                        m_OpenList.Update(neighbor);
-                    }
+			//If child node isn’t on Open or Closed list, put it on Open List.
+			// or if child node is on Open or Closed List,
+			if (neighbor->list == NoList || givenCost < neighbor->givenCost)
+			{
+				//AND this new one is cheaper,
 
-   
-                }
-            }
+
+				//then take the old expensive one off both lists and put this new
+				//cheaper one on the Open List.
+				neighbor->givenCost = givenCost;
+				neighbor->finalCost = finalCost;
+				neighbor->parent = parentNode;
+				if (neighbor->list != OpenList)
+				{
+					neighbor->list = OpenList;
+					m_OpenList.Push(neighbor);
+				}
+				else
+				{
+					m_OpenList.Update(neighbor);
+				}
+			}
+
+        }
+        if (request.settings.heuristic == Heuristic::EUCLIDEAN)
+        {
+            m_OpenList.Maintain();
         }
 
         //If taken too much time this frame(or if request.settings.singleStep == true),
@@ -250,22 +240,6 @@ PathResult AStarPather::compute_path(PathRequest &request)
         }
     }
 
-    //    }
-    //    If taken too much time this frame(or if request.settings.singleStep == true),
-    //        abort search for now and resume next frame(return PathResult::PROCESSING).
-    //}
-    //Open List empty, thus no path possible(return PathResult::IMPOSSIBLE).
-
-
-    
-    // Just sample code, safe to delete
-    //GridPos start = terrain->get_grid_position(request.start);
-    //GridPos goal = terrain->get_grid_position(request.goal);
-    //terrain->set_color(start, Colors::Orange);
-    //terrain->set_color(goal, Colors::Orange);
-    //request.path.push_back(request.start);
-    //request.path.push_back(request.goal);
-    //return PathResult::COMPLETE;
 
     //Open List empty, thus no path possible(return PathResult::IMPOSSIBLE).
 
@@ -284,7 +258,7 @@ void AStarPather::InitializeNewMap()
     m_MapWidth = terrain.get()->get_map_width();
     m_MapHeight = terrain.get()->get_map_height();
 
-    ResetNodeData();
+    m_OpenList.Clear();
 
     PrecomputeNeighbors();
 
@@ -300,6 +274,7 @@ void AStarPather::PrecomputeNeighbors()
             Node* node = GetNode(i, j);
 
             node->mNeighbors = byte();
+
             for (size_t i = 0; i < Directions; i++)
             {
                 std::pair<int, int> dir = m_Dirs.at((Direction)i);
@@ -307,29 +282,31 @@ void AStarPather::PrecomputeNeighbors()
 
                 int row = node->gridPos.row + dir.first;
                 int col = node->gridPos.col + dir.second;
-
-                Node* neighbor = GetNode(row, col);
-
-                if (neighbor)
+                if (terrain->is_valid_grid_position(row, col))
                 {
-                    if (!terrain->is_wall(neighbor->gridPos))
-                    {
-                        if (dir.first != 0 && dir.second != 0)
-                        {
-                            Node* newAdj = GetNode(node->gridPos.row + dir.first, node->gridPos.col);
-                            Node* newAdj2 = GetNode(node->gridPos.row, node->gridPos.col + dir.second);
-                            if (newAdj && newAdj2)
-                            {
-                                if (!terrain->is_wall(newAdj->gridPos) && !terrain->is_wall(newAdj2->gridPos))
-                                {
-                                    node->mNeighbors |= 1 << i;
-                                }
-                            }
+                    Node* neighbor = GetNode(row, col);
 
-                        }
-                        else
+                    if (neighbor)
+                    {
+                        if (!terrain->is_wall(neighbor->gridPos))
                         {
-                            node->mNeighbors |= 1 << i;
+                            if (dir.first != 0 && dir.second != 0)
+                            {
+                                Node* newAdj = GetNode(node->gridPos.row + dir.first, node->gridPos.col);
+                                Node* newAdj2 = GetNode(node->gridPos.row, node->gridPos.col + dir.second);
+                                if (newAdj && newAdj2)
+                                {
+                                    if (!terrain->is_wall(newAdj->gridPos) && !terrain->is_wall(newAdj2->gridPos))
+                                    {
+                                        node->mNeighbors |= 1 << i;
+                                    }
+                                }
+
+                            }
+                            else
+                            {
+                                node->mNeighbors |= 1 << i;
+                            }
                         }
                     }
                 }
@@ -349,51 +326,51 @@ void AStarPather::ResetNodeData()
     }
 }
 
-float AStarPather::Octile(int s_x, int s_y, int e_x, int e_y)
+float AStarPather::Octile(const GridPos& e, const GridPos& s)
 {
-    float dx = static_cast<float>(s_x - e_x);
-    float dy = static_cast<float>(s_y - e_y);
+    float dx = static_cast<float>(s.row - e.row);
+    float dy = static_cast<float>(s.col - e.col);
 
     return std::fmaxf(std::fabs(dx), std::fabs(dy)) + (m_SQRT2 - 1.0f) * std::fminf(std::fabs(dx), std::fabs(dy));
 }
 
-float AStarPather::Manhattan(int s_x, int s_y, int e_x, int e_y)
+float AStarPather::Manhattan(const GridPos& e, const GridPos& s)
 {
-    float dx = static_cast<float>(s_x - e_x);
-    float dy = static_cast<float>(s_y - e_y);
+    float dx = static_cast<float>(s.row - e.row);
+    float dy = static_cast<float>(s.col - e.col);
 
     return std::fabs(dx) + std::fabs(dy);
 }
 
-float AStarPather::Chebyshev(int s_x, int s_y, int e_x, int e_y)
+float AStarPather::Chebyshev(const GridPos& e, const GridPos& s)
 {
-    float dx = static_cast<float>(s_x - e_x);
-    float dy = static_cast<float>(s_y - e_y);
+    float dx = static_cast<float>(s.row - e.row);
+    float dy = static_cast<float>(s.col - e.col);
 
     return std::fmaxf(std::fabs(dx), std::fabs(dy));
 }
 
-float AStarPather::Euclidean(int s_x, int s_y, int e_x, int e_y)
+float AStarPather::Euclidean(const GridPos& e, const GridPos& s)
 {
-    float dx = static_cast<float>(s_x - e_x);
-    float dy = static_cast<float>(s_y - e_y);
+    float dx = static_cast<float>(s.row - e.row);
+    float dy = static_cast<float>(s.col - e.col);
 
-    return std::fabs(dx) + std::fabs(dy);
+    return std::sqrtf(std::fabs(dx*dx) + std::fabs(dy*dy));
 }
 
-float AStarPather::Inconsistent(int s_x, int s_y, int e_x, int e_y)
+float AStarPather::Inconsistent(const GridPos& e, const GridPos& s)
 {
-    if ((s_x + s_y) % 2 > 0)
+    if ((s.row + s.col) % 2 > 0)
     {
-        return Euclidean(s_x, s_y, e_x, e_y);
+        return Euclidean(e,s);
     }
 
     return 0;
 }
 
-float AStarPather::Cost(int s_x, int s_y, int e_x, int e_y)
+float AStarPather::Cost(const GridPos& e, const GridPos& s)
 {
-    if (e_x == s_x || e_y == s_y)
+    if (e.row == s.row || e.col == s.col)
     {
         return 1;
     }
@@ -435,57 +412,136 @@ void AStarPather::AllocateMap()
 
 AStarPather::Node* AStarPather::GetNode(int row, int col)
 {
-    if (terrain->is_valid_grid_position(row, col))
-    {
-        return m_NodeList[row * m_MAPWIDTH + col];
-    }
-
-    return nullptr;
+    return m_NodeList[row * m_MAPWIDTH + col];
 }
 
 void AStarPather::Queued_List::Push(Node* node)
 {
-    m_List.emplace(node);
+    m_List.push_back(node);
+
+    std::push_heap(m_List.begin(), m_List.begin(), NodeSorter());
 }
 
 AStarPather::Node* AStarPather::Queued_List::Pop()
 {
-    Node* node = m_List.top();
-    m_List.pop();
+    std::pop_heap(m_List.begin(), m_List.end(), NodeSorter()); // moves the smallest to the end
 
+    Node* node = m_List.back();
+
+    m_List.pop_back();
 
     return node;
 }
 
-void AStarPather::Queued_List::Update(Node* new_node)
+void AStarPather::Queued_List::Update()
 {
-    AStar_Priority_Queue temp = m_List;
-
-    Clear();
-    m_List.emplace(new_node);
-
-    while (!temp.empty())
-    {
-        Node* node = temp.top();
-        if (node->gridPos != new_node->gridPos)
-        {
-            m_List.emplace(node);
-        }
-
-        temp.pop();
-    }
-
+    std::make_heap(m_List.begin(), m_List.end(), NodeSorter()); // moves the smallest to the end
 }
 
 void AStarPather::Queued_List::Clear()
 {
-    while (!m_List.empty())
-    {
-        m_List.pop();
-    }
+    m_List.clear();
 }
 
-bool AStarPather::Queued_List::Empty()
+bool AStarPather::Queued_List::Empty() const
 {
     return m_List.empty();
+}
+
+AStarPather::Buckets::Buckets(int size, AStarPather* p)
+{
+    for (size_t i = 0; i < size; i++)
+    {
+        m_Buckets = std::vector<Queued_List>(size, Queued_List());
+    }
+
+    m_Parent = p;
+    m_MaxBucket = size - 1;
+    //m_CurrentLowestBucket = size - 1;
+    //m_NextLowestBucket = size -1;
+}
+
+void AStarPather::Buckets::Maintain()
+{
+    m_Buckets[m_CurrentLowestBucket].Update();
+}
+
+void AStarPather::Buckets::Push(Node* node)
+{
+    int bucket = static_cast<int>(node->finalCost / m_Range);
+
+    bucket = std::min(bucket, m_MaxBucket);
+
+    m_BucketHistory.emplace(node->gridPos.row * m_MAPWIDTH + node->gridPos.col, bucket);
+
+    m_Buckets[bucket].Push(node);
+
+    m_CurrentBucket.insert(bucket);
+
+    m_CurrentLowestBucket = *m_CurrentBucket.begin();
+}
+
+AStarPather::Node* AStarPather::Buckets::Pop()
+{
+    return  m_Buckets[m_CurrentLowestBucket].Pop();
+}
+
+void AStarPather::Buckets::Update(Node* new_node)
+{
+    ///update this new node
+    int bucket = static_cast<int>(new_node->finalCost / m_Range);
+    bucket = std::min(bucket, m_MaxBucket);
+    int pos = new_node->gridPos.row * m_MAPWIDTH + new_node->gridPos.col;
+
+    int old_bucket = m_BucketHistory.at(pos);
+
+    //if node belongs in other bucket
+    if (old_bucket != bucket)
+    {
+        m_BucketHistory[pos] = bucket;
+        Push(new_node);
+    }
+    else
+    {
+        m_Buckets[bucket].Update();
+    }
+
+}
+
+void AStarPather::Buckets::Clear()
+{
+    while (m_CurrentBucket.size() != 0)
+    {
+        auto i = m_CurrentBucket.extract(*m_CurrentBucket.begin());
+
+        m_Buckets[i.value()].Clear();
+    }
+
+    for (const auto& node : m_BucketHistory)
+    {
+        m_Parent->m_NodeList[node.first]->Reset();
+    }
+
+    m_BucketHistory.clear();
+}
+
+bool AStarPather::Buckets::Empty()
+{
+    if (m_Buckets[m_CurrentLowestBucket].Empty())
+    {
+        //auto it = std::find_if_not(m_Buckets.begin() + m_CurrentLowestBucket, m_Buckets.end(), IsEmpty);
+        //m_CurrentLowestBucket = static_cast<int>(std::distance(m_Buckets.begin(), it));
+        m_CurrentBucket.erase(m_CurrentLowestBucket);
+        m_CurrentLowestBucket = *m_CurrentBucket.begin();
+
+        if (m_CurrentBucket.empty())
+        {
+            return true;
+        }
+ /*       if (m_CurrentLowestBucket == m_Buckets.size())
+        {
+        }*/
+    }
+
+    return m_Buckets[m_CurrentLowestBucket].Empty();
 }

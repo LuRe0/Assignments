@@ -1,0 +1,5 @@
+TREENAME(BT_Bullet)
+TREENODE(C_SameFrame_Sequencer, 0)
+TREENODE(D_CheckCollision, 1)
+TREENODE(L_DestroyAgent, 2)
+TREENODE(L_MoveTowardsVelocity, 1)
