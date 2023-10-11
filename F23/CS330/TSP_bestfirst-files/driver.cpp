@@ -94,5 +94,8 @@ int main(int argc, char ** argv) {
         std::sscanf(argv[1],"%i",&test);
         pTests[test]();
     }
+
+    //test0();
+
     return 0;
 }
